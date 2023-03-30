@@ -239,13 +239,13 @@ estimdl <- function(y, m, n, z, x = matrix(0,0,0), control = list()){
     mdlout$supLRT <- brkout$supLRT
     mdlout$cv <- brkout$cv
   }
-  # ----- esimate model
+  # ----- estimate model
   if ((is.null(con$brcdt)==FALSE) & (is.null(con$brvdt))){
     estim_out <- estim(y,z,x,mdlout$m,con$brcdt,con$robust,con$prewhit,con$hetomega,con$hetq,con$hetdat,con$hetvar)
     beta <- estim_out$coef
     stdev <- sqrt(estim_out$sigma2)
     brc <- con$brcdt
-    brv <- matrix(0,0,0)
+    brv <- matrix(0,0,0)    
     res <-  estim_out$resid
   }else{
     # step 1
