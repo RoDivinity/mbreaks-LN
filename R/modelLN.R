@@ -128,6 +128,7 @@ sbm <- function(mform, data, m=2, h=10, control=NULL,  ...){
   attr(model.sbm, 'zterms') <- colnames(z)
   #group description of the model into field description
   description <- c()
+  out.formula <- formula(form_ref)
   attr(out.formula,'.Environment') <- envForm
   description$formula <- form_ref
   attr(description, 'formula') <- form_ref
