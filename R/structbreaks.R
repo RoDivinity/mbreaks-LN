@@ -1084,10 +1084,12 @@ estim <- function(y,z,x,m,b,robust,prewhit,hetomega,hetq,hetdat,hetvar){
   
   # confidence intervals
   bound <- interval(y,z,zbar,b,q,m,robust,prewhit,hetomega,hetq,x,p)
-  colnames(bound) <- c("95% low","90% low","90% upp", "95% upp")
+  colnames(bound) <- c("95% lb","95% ub","90% lb", "90% ub")
   # output
   mdl_out$SE_correct <- SE_correct
   mdl_out$bound <- bound
+  mdl_out$fitted = as.matrix(reg%*%mdl_out$coef)
+  mdl_out$resid = as.matrix(y - mdl_out$fitted)
   return(mdl_out)
 }
 
